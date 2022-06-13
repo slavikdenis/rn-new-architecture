@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.68.2",
-    "react-native-codegen": "^0.69.1"
+    "react-native-codegen": "^0.69.1",
+    "react-native-gradle-plugin": "^0.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
