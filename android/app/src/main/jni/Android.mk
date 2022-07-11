@@ -19,10 +19,10 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 # If you wish to add a custom TurboModule or Fabric component in your app you
 # will have to uncomment those lines to include the generated source
 # files from the codegen (placed in $(GENERATED_SRC_DIR)/codegen/jni)
-#
-# LOCAL_C_INCLUDES += $(GENERATED_SRC_DIR)/codegen/jni
-# LOCAL_SRC_FILES += $(wildcard $(GENERATED_SRC_DIR)/codegen/jni/*.cpp)
-# LOCAL_EXPORT_C_INCLUDES += $(GENERATED_SRC_DIR)/codegen/jni
+
+LOCAL_C_INCLUDES += $(GENERATED_SRC_DIR)/codegen/jni
+LOCAL_SRC_FILES += $(wildcard $(GENERATED_SRC_DIR)/codegen/jni/*.cpp)
+LOCAL_EXPORT_C_INCLUDES += $(GENERATED_SRC_DIR)/codegen/jni
 
 # Here you should add any native library you wish to depend on.
 LOCAL_SHARED_LIBRARIES := \
