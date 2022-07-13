@@ -12,6 +12,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		48BDBDB0287EE0DB00DAD0B9 /* NativeSampleModule-generated.mm in Sources */ = {isa = PBXBuildFile; fileRef = 48BDBDAF287EE0DB00DAD0B9 /* NativeSampleModule-generated.mm */; };
+		48BDBDB4287EE19900DAD0B9 /* RCTNativeSampleModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 48BDBDB3287EE19900DAD0B9 /* RCTNativeSampleModule.mm */; };
 		7699B88040F8A987B510C191 /* libPods-NewArchitectureApp-NewArchitectureAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-NewArchitectureApp-NewArchitectureAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,10 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NewArchitectureApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-NewArchitectureApp-NewArchitectureAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewArchitectureApp-NewArchitectureAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-NewArchitectureApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewArchitectureApp.debug.xcconfig"; path = "Target Support Files/Pods-NewArchitectureApp/Pods-NewArchitectureApp.debug.xcconfig"; sourceTree = "<group>"; };
+		48BDBDAE287EE0DB00DAD0B9 /* NativeSampleModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeSampleModule.h; sourceTree = "<group>"; };
+		48BDBDAF287EE0DB00DAD0B9 /* NativeSampleModule-generated.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NativeSampleModule-generated.mm"; sourceTree = "<group>"; };
+		48BDBDB2287EE16E00DAD0B9 /* RCTNativeSampleModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNativeSampleModule.h; sourceTree = "<group>"; };
+		48BDBDB3287EE19900DAD0B9 /* RCTNativeSampleModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeSampleModule.mm; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-NewArchitectureApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewArchitectureApp.release.xcconfig"; path = "Target Support Files/Pods-NewArchitectureApp/Pods-NewArchitectureApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-NewArchitectureApp-NewArchitectureAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewArchitectureApp-NewArchitectureAppTests.debug.xcconfig"; path = "Target Support Files/Pods-NewArchitectureApp-NewArchitectureAppTests/Pods-NewArchitectureApp-NewArchitectureAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-NewArchitectureApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewArchitectureApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +112,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		48BDBDAD287EE0DB00DAD0B9 /* NativeSampleModule */ = {
+			isa = PBXGroup;
+			children = (
+				48BDBDAE287EE0DB00DAD0B9 /* NativeSampleModule.h */,
+				48BDBDAF287EE0DB00DAD0B9 /* NativeSampleModule-generated.mm */,
+			);
+			name = NativeSampleModule;
+			path = build/generated/ios/NativeSampleModule;
+			sourceTree = "<group>";
+		};
+		48BDBDB1287EE14D00DAD0B9 /* NativeSampleModuleImpl */ = {
+			isa = PBXGroup;
+			children = (
+				48BDBDB2287EE16E00DAD0B9 /* RCTNativeSampleModule.h */,
+				48BDBDB3287EE19900DAD0B9 /* RCTNativeSampleModule.mm */,
+			);
+			path = NativeSampleModuleImpl;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +141,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				48BDBDB1287EE14D00DAD0B9 /* NativeSampleModuleImpl */,
+				48BDBDAD287EE0DB00DAD0B9 /* NativeSampleModule */,
 				13B07FAE1A68108700A75B9A /* NewArchitectureApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* NewArchitectureAppTests */,
@@ -413,6 +440,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				48BDBDB0287EE0DB00DAD0B9 /* NativeSampleModule-generated.mm in Sources */,
+				48BDBDB4287EE19900DAD0B9 /* RCTNativeSampleModule.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +624,7 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-DRCT_NEW_ARCH_ENABLED=1",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -659,6 +689,7 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-DRCT_NEW_ARCH_ENABLED=1",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
