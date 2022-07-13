@@ -129,6 +129,10 @@ def reactNativeArchitectures() {
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
 
+react {
+  jsRootDir = rootProject.file("../js/")
+}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 

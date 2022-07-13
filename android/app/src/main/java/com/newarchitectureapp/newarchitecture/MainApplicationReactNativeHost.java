@@ -2,28 +2,37 @@ package com.newarchitectureapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactPackageTurboModuleManagerDelegate;
+import com.facebook.react.TurboReactPackage;
 import com.facebook.react.bridge.JSIModulePackage;
 import com.facebook.react.bridge.JSIModuleProvider;
 import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JSIModuleType;
 import com.facebook.react.bridge.JavaScriptContextHolder;
+import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.UIManager;
 import com.facebook.react.fabric.ComponentFactory;
 import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
+import com.facebook.react.module.model.ReactModuleInfo;
+import com.facebook.react.module.model.ReactModuleInfoProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.newarchitectureapp.BuildConfig;
+import com.newarchitectureapp.NativeSampleModuleImpl;
 import com.newarchitectureapp.newarchitecture.components.MainComponentsRegistry;
 import com.newarchitectureapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A {@link ReactNativeHost} that helps you load everything needed for the New Architecture, both
@@ -49,6 +58,37 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
     //     packages.add(new MyReactNativePackage());
     // TurboModules must also be loaded here providing a valid TurboReactPackage implementation:
     //     packages.add(new TurboReactPackage() { ... });
+    packages.add(new TurboReactPackage() {
+      @Nullable
+      @Override
+      public NativeModule getModule(String name, ReactApplicationContext reactContext) {
+        if (name.equals(NativeSampleModuleImpl.NAME)) {
+          return new NativeSampleModuleImpl(reactContext);
+        } else {
+          return null;
+        }
+      }
+
+      @Override
+      public ReactModuleInfoProvider getReactModuleInfoProvider() {
+        return () -> {
+          final Map<String, ReactModuleInfo> moduleInfo = new HashMap<>();
+          moduleInfo.put(
+                  NativeSampleModuleImpl.NAME,
+                  new ReactModuleInfo(
+                          NativeSampleModuleImpl.NAME,
+                          NativeSampleModuleImpl.NAME,
+                          false, // canOverrideExistingModule
+                          false, // needsEagerInit
+                          true, // hasConstants
+                          false, // isCxxModule
+                          true // isTurboModule
+                  )
+          );
+          return moduleInfo;
+        };
+      }
+    });
     // If you have custom Fabric Components, their ViewManagers should also be loaded here
     // inside a ReactPackage.
     return packages;
