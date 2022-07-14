@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import NativeSampleModule from './js/NativeSampleModule';
+import SampleButtonNativeComponent from './js/SampleButtonNativeComponent';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,9 +33,18 @@ const App = () => {
         contentContainerStyle={styles.container}>
         <View style={styles.button}>
           <Button
-            title="New architecture demo"
+            title="Turbo Module Demo"
             onPress={handleAlert}
             color={buttonColor}
+          />
+
+          <SampleButtonNativeComponent
+            // testID={buildTestID('detail', 'notification-button')}
+            style={styles.customButtonStyle}
+            // enabled={!condition}
+            // handlePress={handleAlert}
+            text="Fabric Component Demo"
+            // onPress={handleAlert}
           />
         </View>
       </ScrollView>
@@ -53,6 +63,11 @@ const styles = StyleSheet.create({
   button: {
     margin: 10,
     padding: 10,
+  },
+  customButtonStyle: {
+    width: '100%',
+    height: 45,
+    marginTop: 10,
   },
 });
 

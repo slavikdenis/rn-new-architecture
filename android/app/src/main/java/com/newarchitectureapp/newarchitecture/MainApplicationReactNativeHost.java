@@ -24,12 +24,15 @@ import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.module.model.ReactModuleInfo;
 import com.facebook.react.module.model.ReactModuleInfoProvider;
+import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.newarchitectureapp.BuildConfig;
 import com.newarchitectureapp.NativeSampleModuleImpl;
+import com.newarchitectureapp.SampleButtonViewManager;
 import com.newarchitectureapp.newarchitecture.components.MainComponentsRegistry;
 import com.newarchitectureapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -91,6 +94,20 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
     });
     // If you have custom Fabric Components, their ViewManagers should also be loaded here
     // inside a ReactPackage.
+    packages.add(new ReactPackage() {
+      @NonNull
+      @Override
+      public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+      }
+
+      @NonNull
+      @Override
+      public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
+        // Your ViewManager is returned here.
+        return Collections.singletonList(new SampleButtonViewManager());
+      }
+    });
     return packages;
   }
 
